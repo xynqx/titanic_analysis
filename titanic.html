@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #001f3f; /* Deep sea color */
+            color: #ffffff; /* White text color */
+        }
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+        h1, h2 {
+            color: #ffcc00; /* Strong yellow color for titles */
+        }
+        #container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #text-container {
+            flex: 1;
+            text-align: left;
+            padding: 0 20px; /* Add padding for better separation */
+        }
+        #pillar-left,
+        #pillar-right {
+            width: 0; /* Initially set to 0 width */
+            overflow: hidden;
+            background-color: #001f3f; /* Deep sea color for pillars */
+            transition: width 0.5s ease; /* Transition effect for smooth appearance */
+        }
+        #pillar-left img,
+        #pillar-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        select {
+            color: #001f3f; /* Deep sea color for select text */
+            background-color: #ffffff; /* White background for select */
+            border: 1px solid #001f3f; /* Deep sea color border for select */
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Language Selector -->
+<div>
+    <label for="language">Select Language:</label>
+    <select id="language" onchange="changeLanguage()">
+        <option value="english">English</option>
+        <option value="portuguese">Português</option>
+    </select>
+</div>
+
+<!-- Container for Text and Pillars -->
+<div id="container">
+    <!-- Pillars with Images -->
+    <div id="pillar-left">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg" alt="Image of the Titanic">
+    </div>
+    
+    <!-- Text Container -->
+    <section id="text-container">
+        <!-- Content will be dynamically populated here using JavaScript -->
+    </section>
+
+    <!-- Pillar with Image -->
+    <div id="pillar-right">
+        <img src="https://media.npr.org/assets/img/2012/03/29/titanic_custom-fc6a03aedd8e562d780ecf9b9a8a947d4dcbf163-s1100-c50.jpg" alt="Image of the Titanic">
+    </div>
+</div>
+
+<script>
+    function changeLanguage() {
+        var languageSelector = document.getElementById("language");
+        var selectedLanguage = languageSelector.value;
+
+        var textContainer = document.getElementById("text-container");
+        var pillarLeft = document.getElementById("pillar-left");
+        var pillarRight = document.getElementById("pillar-right");
+
+        if (selectedLanguage === "english") {
+            textContainer.innerHTML = `
+                <h1>Titanic Analysis</h1>
+                <p>The film "Titanic," directed by James Cameron, is a masterpiece that transcends decades and continues to captivate audiences worldwide. Let's explore the analysis of the film through the lens of Communication Theories, unraveling the intricate elements that compose this romantic epic.</p>
+                <h2>1. Application of Communication Theories</h2>
+                <p>"Titanic" is a treasure of visual and auditory communication. By applying relevant communication theories, we can decipher how the film communicates messages, values, and ideas. Non-verbal language, expressed through cinematography and the soundtrack, serves as a powerful link between the work and the audience, conveying emotions and underlying narratives.</p>
+                <h2>2. Narrative Analysis</h2>
+                <p>The narrative structure of "Titanic" is like an intricate puzzle, where each piece fits together to form an epic story. The construction of characters, the development of secondary plots, and the mastery in the use of flashbacks and flashforwards contribute to narrative richness. The duality between the present and the past provides a unique depth to the viewer's experience.</p>
+                <h2>3. Interpretation and Symbolism</h2>
+                <p>Aboard the ship, symbols are woven into the plot like invisible threads. The rose, the heart drawn on the glass, the iconic scene at the bow of the ship—each visual element and character action is laden with symbolism. Interpreting these symbols reveals deeper layers of themes, messages, and metaphors, elevating the work beyond a simple love story.</p>
+                <h2>4. Cultural Context</h2>
+                <p>Produced at the end of the 20th century, "Titanic" reflects the zeitgeist of the time. The cultural context influences the interpretation of semiotic elements, from aesthetic choices to social dilemmas addressed. The film's approach to class and gender issues is inseparable from the socio-cultural environment of the turn of the century.</p>
+                <h2>5. Impact on the Audience</h2>
+                <p>The emotional impact of "Titanic" is undeniable. From tears shed during the sinking to admiration for the forbidden love of Jack and Rose, the film seeks to influence the audience on emotional and cognitive levels. The success of the film goes beyond the box office; it is an experience that resonates with the audience, transcends generations, and continues to shape perceptions of love and tragedy.</p>
+                <h2>6. Conclusions and Discussion</h2>
+                <p>At the end of the analysis, we can conclude that "Titanic" is more than a cinematic work; it is a complex tapestry, intertwining communication theories to tell a story that resonates with audiences worldwide. The film uses cinematic language not only as a means of entertainment but as a powerful tool to convey universal messages and provoke lasting reflections on the human condition. This analysis provides an in-depth insight into how elements of Communication Theories are skillfully employed to create an immersive and impactful cinematic experience.</p>
+            `;
+        } else if (selectedLanguage === "portuguese") {
+            textContainer.innerHTML = `
+                <h1>Análise do Titanic</h1>
+                <p>O filme "Titanic", dirigido por James Cameron, é uma obra que transcende as décadas e continua a cativar audiências em todo o mundo. Vamos explorar a análise do filme à luz das Teorias da Comunicação, desvendando os intricados elementos que compõem essa epopeia romântica.</p>
+                <h2>1. Aplicação de Teorias da Comunicação</h2>
+                <p>Através das teorias da comunicação, podemos compreender como o filme comunica mensagens, valores e ideias. A linguagem não verbal, expressa através da cinematografia e trilha sonora, funciona como um elo poderoso entre a obra e o público, transmitindo emoções e narrativas subjacentes.</p>
+                <h2>2. Análise Narrativa</h2>
+                <p>A estrutura narrativa de "Titanic" é como um intricado quebra-cabeça, onde cada peça se encaixa para formar uma história épica. A construção dos personagens, o desenvolvimento de enredos secundários e a maestria na utilização de flashbacks e flashforwards contribuem para a riqueza narrativa. A dualidade entre o presente e o passado proporciona uma profundidade única à experiência do espectador.</p>
+                <h2>3. Interpretação e Simbolismo</h2>
+                <p>A bordo do navio, símbolos são tecidos na trama como fios invisíveis. A rosa, o coração desenhado no vidro, a icônica cena na proa do navio - cada elemento visual e ação dos personagens são carregados de simbolismo. Interpretar esses símbolos revela camadas mais profundas de temas, mensagens e metáforas, elevando a obra além de uma simples história de amor.</p>
+                <h2>4. Contexto Cultural</h2>
+                <p>Produzido no final do século XX, "Titanic" reflete o zeitgeist da época. O contexto cultural influencia a interpretação dos elementos semióticos, desde as escolhas estéticas até os dilemas sociais abordados. A abordagem do filme às questões de classe e gênero é inseparável do ambiente sociocultural da virada do século.</p>
+                <h2>5. Impacto na Audiência</h2>
+                <p>O impacto emocional de "Titanic" é inegável. Desde as lágrimas derramadas durante o naufrágio até a admiração pelo amor proibido de Jack e Rose, o filme busca influenciar a audiência em níveis emocionais e cognitivos. O sucesso do filme vai além das bilheteiras; é uma experiência que ressoa com o público, transcende gerações e continua a moldar as percepções sobre o amor e a tragédia.</p>
+                <h2>6. Conclusões e Discussão</h2>
+                <p>Ao final da análise, podemos concluir que "Titanic" é mais do que uma obra cinematográfica; é uma tapeçaria complexa, entrelaçando teorias da comunicação para contar uma história que ressoa com audiências de todo o mundo. O filme utiliza a linguagem cinematográfica não apenas como meio de entretenimento, mas como uma ferramenta poderosa para transmitir mensagens universais e provocar reflexões duradouras sobre a condição humana. Essa análise proporciona uma visão aprofundada de como elementos das Teorias da Comunicação são habilmente empregados para criar uma experiência cinematográfica imersiva e impactante.</p>
+            `;
+        }
+
+        // Adjust pillar width when text changes
+        pillarLeft.style.width = "25%";
+        pillarRight.style.width = "25%";
+    }
+</script>
+
+</body>
+</html>
